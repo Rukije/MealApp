@@ -23,7 +23,7 @@ function MealItem({ title, imageUrl, duration, complexity, affordability }) {
             <Text style={styles.title}>{title}</Text>
           </View>
           <View style={styles.details}>
-            <Text style={styles.detailItem}>Duration: {duration}m</Text>
+            <Text style={styles.detailItem}>DURATION: {duration}m</Text>
             <Text style={styles.detailItem}>
               COMPLEXITY: {complexity.toUpperCase()}
             </Text>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
     overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
-  buttonPressed:{
+  buttonPressed: {
     opacity: 0.5,
   },
   innerContainer: {
