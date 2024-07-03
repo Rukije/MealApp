@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
-
+import MealDetailScreen from "./screens/MailDetailScreen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -39,6 +39,10 @@ export default function App() {
           //   };
           // }} display title based the category id
           />
+          <Stack.Screen
+            name="MealDetail"
+            component={MealDetailScreen}
+            />
         </Stack.Navigator>
       </NavigationContainer>
     </>
