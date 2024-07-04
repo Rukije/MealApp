@@ -8,6 +8,7 @@ import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealDetailScreen from "./screens/MailDetailScreen";
 import FavoriteScreen from "./screens/FavoriteScreen";
 import { Ionicons } from "@expo/vector-icons";
+import FavoritesContextProvider from "./store/context/favorite-context";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -19,10 +20,10 @@ function DrawerNavigator() {
         headerStyle: { backgroundColor: "#351401" },
         headerTintColor: "white",
         sceneContainerStyle: { backgroundColor: "#3f2f25" },
-        drawerContentStyle:{backgroundColor:"#351401"},
-        drawerInactiveTintColor:'white',
-        drawerActiveTintColor:'#351401',
-        drawerActiveBackgroundColor:'#e4baa1'
+        drawerContentStyle: { backgroundColor: "#351401" },
+        drawerInactiveTintColor: "white",
+        drawerActiveTintColor: "#351401",
+        drawerActiveBackgroundColor: "#e4baa1",
       }}
     >
       <Drawer.Screen
@@ -35,13 +36,16 @@ function DrawerNavigator() {
           ),
         }}
       />
-      <Drawer.Screen name="Favorites" component={FavoriteScreen}
-      options={{
-        title: "Favorites",
-        drawerIcon: ({ color, size }) => (
-          <Ionicons name="star" size={size} color={color} />
-        ),
-      }} />
+      <Drawer.Screen
+        name="Favorites"
+        component={FavoriteScreen}
+        options={{
+          title: "Favorites",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="star" size={size} color={color} />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 }
@@ -50,12 +54,13 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
+      <FavoritesContextProvider>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             headerStyle: { backgroundColor: "#351401" },
             headerTintColor: "white",
-            contentStyle: { backgroundColor: "#351401" },
+            contentStyle: { backgroundColor: "#3f2f25" },
           }}
         >
           <Stack.Screen
@@ -79,11 +84,16 @@ export default function App() {
             //   };
             // }} display title based the category id
           />
-          <Stack.Screen name="MealDetail" component={MealDetailScreen} options={{
-            title: "Meal Detail",
-          }} />
+          <Stack.Screen
+            name="MealDetail"
+            component={MealDetailScreen}
+            options={{
+              title: "Meal Detail",
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
+      </FavoritesContextProvider>
     </>
   );
 }

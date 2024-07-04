@@ -1,7 +1,7 @@
 import { View, FlatList, Text, StyleSheet } from "react-native";
 import { useEffect,useLayoutEffect } from "react";
 import { MEALS, CATEGORIES } from "../data/dummy-data";
-import MealItem from "../components/MealItem";
+import MealItem from "../components/MealsList/MealItem";
 
 function MealsOverviewScreen({ route, navigation }) {
   const catId = route.params.categoryId;
