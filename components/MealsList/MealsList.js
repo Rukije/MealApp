@@ -16,7 +16,6 @@ function MealsList({items}) {
   }
   return (
     <View style={styles.container}>
-      {/* <Text>MealsOverviewScreen - {catId}</Text> */}
       <FlatList
         data={items}
         keyExtractor={(item) => item.id}
