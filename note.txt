@@ -1,0 +1,15 @@
+build in android
+
+I    sudo npm install -g eas-cli
+II   eas login 
+III  eas build:configure
+
+IV      "android":{
+        "buildType":"apk"
+      },                                        //eas.json
+
+
+V        eas build -p android --profile preview
+================================================================
+
+IOS
